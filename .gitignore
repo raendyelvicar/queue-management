@@ -5,7 +5,7 @@
 
 # Config & logs
 **/appsettings.json
-!**/appsettings.Development.json
+**/appsettings.Development.json
 *.log
 
 # Docker
@@ -20,6 +20,9 @@ docker-compose.override.yml
 *.user
 *.cache
 *.csproj.user
+
+.gitignore
+.dockerignore
 
 # Paket & dependencies
 node_modules/
