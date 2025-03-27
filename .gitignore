@@ -1,0 +1,24 @@
+# Folder build
+bin/
+obj/
+out/
+
+# Konfigurasi & logs
+appsettings.json
+appsettings.*.json
+*.log
+
+# Docker
+.env
+docker-compose.override.yml
+
+# IDE & Editor
+.vscode/
+*.suo
+*.user
+*.cache
+*.csproj.user
+
+# Paket & dependencies
+node_modules/
+packages/
