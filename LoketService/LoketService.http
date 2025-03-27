@@ -1,0 +1,6 @@
+@LoketService_HostAddress = http://localhost:5216
+
+GET {{LoketService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

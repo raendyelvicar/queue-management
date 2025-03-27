@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioskService", "KioskService\KioskService.csproj", "{98129401-5832-4D07-A1B9-8569B2A797C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayService", "DisplayService\DisplayService.csproj", "{0A0F03AB-7FFA-44CA-A476-71ACBC98F9B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoketService", "LoketService\LoketService.csproj", "{73BDEE7D-AF7D-43B3-8F3D-0003E6F0CBB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{BA63BD3E-B5DB-45CE-9582-E2210CB02A25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98129401-5832-4D07-A1B9-8569B2A797C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98129401-5832-4D07-A1B9-8569B2A797C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98129401-5832-4D07-A1B9-8569B2A797C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98129401-5832-4D07-A1B9-8569B2A797C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A0F03AB-7FFA-44CA-A476-71ACBC98F9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A0F03AB-7FFA-44CA-A476-71ACBC98F9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A0F03AB-7FFA-44CA-A476-71ACBC98F9B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A0F03AB-7FFA-44CA-A476-71ACBC98F9B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73BDEE7D-AF7D-43B3-8F3D-0003E6F0CBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73BDEE7D-AF7D-43B3-8F3D-0003E6F0CBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73BDEE7D-AF7D-43B3-8F3D-0003E6F0CBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73BDEE7D-AF7D-43B3-8F3D-0003E6F0CBB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA63BD3E-B5DB-45CE-9582-E2210CB02A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA63BD3E-B5DB-45CE-9582-E2210CB02A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA63BD3E-B5DB-45CE-9582-E2210CB02A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA63BD3E-B5DB-45CE-9582-E2210CB02A25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
