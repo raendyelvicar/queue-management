@@ -26,8 +26,8 @@ Pastikan Anda memiliki:
    ```
 2. **Periksa file `appsettings.json` untuk memastikan konfigurasi benar.**
 
-## 🐳 Menjalankan dengan Docker
-Jalankan perintah berikut untuk membangun dan menjalankan semua layanan:
+## 🐳 Menjalankan Aplikasi
+Jalankan setiap service secara terpisah atau gunakan Docker:
 ```sh
 docker compose up -d
 ```
@@ -37,12 +37,6 @@ Jika ini pertama kali menjalankan proyek, lakukan migrasi database:
 ```sh
 cd Shared
 dotnet ef database update
-```
-
-## ▶️ Menjalankan Aplikasi
-Jalankan setiap service secara terpisah atau gunakan Docker:
-```sh
-docker compose up -d
 ```
 
 ## 🔧 Troubleshooting
