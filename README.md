@@ -24,12 +24,12 @@ Pastikan Anda memiliki:
    RABBITMQ_DEFAULT_USER=guest
    RABBITMQ_DEFAULT_PASS=guest
    ```
-2. **Periksa file `appsettings.Development.json` atau `appsettings.json` untuk memastikan konfigurasi benar.**
+2. **Periksa file `appsettings.json` untuk memastikan konfigurasi benar.**
 
 ## 🐳 Menjalankan dengan Docker
 Jalankan perintah berikut untuk membangun dan menjalankan semua layanan:
 ```sh
-docker-compose up --env-file .env -d
+docker compose up -d
 ```
 
 ## 🏗️ Menjalankan Migrasi Database
@@ -42,7 +42,7 @@ dotnet ef database update
 ## ▶️ Menjalankan Aplikasi
 Jalankan setiap service secara terpisah atau gunakan Docker:
 ```sh
-docker-compose up --env-file .env -d
+docker compose up -d
 ```
 
 ## 🔧 Troubleshooting
