@@ -22,9 +22,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.json" />
+    <None Remove="appsettings.Development.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="..\.dockerignore">
       <Link>.dockerignore</Link>
     </Content>
   </ItemGroup>
+
 
 </Project>

@@ -1,8 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using Shared.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION") 
+                       ?? builder.Configuration.GetConnectionString("DefaultConnection");
+      
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5054); // Pastikan ini sama dengan port dalam container
+    //options.ListenAnyIP(7106, listenOptions => listenOptions.UseHttps());
+});
 
 var app = builder.Build();
 

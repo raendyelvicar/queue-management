@@ -1,22 +1,29 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-USER $APP_UID
-WORKDIR /app
-
+﻿# Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
-COPY ["KioskService/KioskService.csproj", "KioskService/"]
-COPY ["Shared/Shared.csproj", "Shared/"]
-RUN dotnet restore "KioskService/KioskService.csproj"
-COPY . .
-WORKDIR "/src/KioskService"
-RUN dotnet build "KioskService.csproj" -c $BUILD_CONFIGURATION -o /app/build
-
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "KioskService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
-
-FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+
+# Copy solusi utama dan semua project file
+COPY QueueManagement.sln ./
+COPY Shared/*.csproj ./Shared/
+COPY LoketService/*.csproj ./LoketService/
+COPY KioskService/*.csproj ./KioskService/
+COPY DisplayService/*.csproj ./DisplayService/
+
+# Restore dependencies
+RUN dotnet restore QueueManagement.sln
+
+# Copy seluruh source code
+COPY . .
+
+EXPOSE 5108
+
+# Build LoketService
+WORKDIR /app/KioskService
+RUN dotnet publish -c Release -o /out
+
+# Stage 2: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /app
+COPY --from=build /out .
+
 ENTRYPOINT ["dotnet", "KioskService.dll"]
