@@ -1,0 +1,63 @@
+﻿services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "${SA_PASSWORD}"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+  
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
+      RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
+  loket-service:
+    build:
+      context: .
+      dockerfile: ./LoketService/Dockerfile
+    ports:
+      - "7010:5216"
+    environment:
+      - ASPNETCORE_URLS=http://+:5216
+      - DB_CONNECTION=${DB_CONNECTION}
+      - RabbitMQ__Host=rabbitmq
+    depends_on:
+      - sqlserver
+      - rabbitmq
+  
+  kiosk-service:
+    build:
+      context: .
+      dockerfile: ./KioskService/Dockerfile
+    ports:
+      - "7100:5108"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+    environment:
+      - ASPNETCORE_URLS=http://+:5108
+      - DB_CONNECTION=${DB_CONNECTION}
+      - RabbitMQ__Host=rabbitmq
+  
+  display-service:
+    build:
+      context: .
+      dockerfile: ./DisplayService/Dockerfile
+    ports:
+      - "7200:5054"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+    environment:
+      - ASPNETCORE_URLS=http://+:5054
+      - DB_CONNECTION=${DB_CONNECTION}
+      - RabbitMQ__Host=rabbitmq
+  
+ 
