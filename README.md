@@ -20,7 +20,7 @@ Pastikan Anda memiliki:
 1. **Buat file `.env` di root proyek dan isi dengan variabel berikut:**
    ```sh
    SA_PASSWORD=<YourStrong!Passw0rd>
-   DB_CONNECTION=Server=sqlserver;Database=QueueDB;User Id=sa;Password=<YourStrong!Passw0rd>;TrustServerCertificate=Yes
+   DB_CONNECTION=Server=sqlserver,1433;Database=QueueDB;User Id=sa;Password=<YourStrong!Passw0rd>;TrustServerCertificate=Yes
    RABBITMQ_DEFAULT_USER=guest
    RABBITMQ_DEFAULT_PASS=guest
    ```
